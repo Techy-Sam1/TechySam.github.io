@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SamAnalytics — Data Analyst Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#09090b;
+  --s1:#111113;
+  --s2:#18181b;
+  --s3:#27272a;
+  --bd:rgba(255,255,255,0.07);
+  --bd2:rgba(255,255,255,0.15);
+  --txt:#f4f4f5;
+  --muted:#71717a;
+  --sub:#a1a1aa;
+  --acc:#22d3ee;
+  --purple:#a78bfa;
+  --green:#34d399;
+  --amber:#fbbf24;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;font-weight:300;font-size:16px;line-height:1.7;overflow-x:hidden}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:0;width:100%;z-index:999;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;background:rgba(9,9,11,0.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd)}
+.logo{font-family:'Lora',serif;font-size:1.15rem;color:var(--txt);text-decoration:none;letter-spacing:.01em}
+.logo span{color:var(--acc)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.83rem;font-weight:400;letter-spacing:.04em;transition:color .2s}
+.nav-links a:hover{color:var(--acc)}
+.nav-cta{background:var(--acc);color:#09090b !important;padding:.35rem 1rem;border-radius:6px;font-weight:500 !important;transition:opacity .2s !important}
+.nav-cta:hover{opacity:.85;color:#09090b !important}
+
+/* ─── HERO ─── */
+.hero{min-height:100vh;display:flex;align-items:center;padding:5rem 3rem 4rem;position:relative;overflow:hidden}
+.glow-a{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(34,211,238,.06) 0%,transparent 65%);top:-20%;right:-5%;pointer-events:none}
+.glow-b{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.045) 0%,transparent 65%);bottom:-10%;left:-5%;pointer-events:none}
+.hero-inner{max-width:980px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:center}
+.hero-left{}
+.badge{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);margin-bottom:1.5rem;padding:.35rem .9rem;border:1px solid rgba(34,211,238,.25);border-radius:20px;background:rgba(34,211,238,.06)}
+.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--acc);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+h1{font-family:'Lora',serif;font-size:clamp(2.6rem,5.5vw,4.8rem);font-weight:600;line-height:1.07;margin-bottom:1.4rem}
+h1 em{font-style:italic;color:var(--acc)}
+.hero-desc{font-size:1rem;color:var(--sub);max-width:480px;margin-bottom:2.5rem;line-height:1.9}
+.btns{display:flex;gap:.9rem;flex-wrap:wrap;margin-bottom:3.5rem}
+.btn-p{background:var(--acc);color:#09090b;padding:.72rem 1.8rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:.88rem;transition:opacity .2s;letter-spacing:.01em}
+.btn-p:hover{opacity:.82}
+.btn-g{border:1px solid var(--bd2);color:var(--sub);padding:.72rem 1.8rem;border-radius:8px;text-decoration:none;font-weight:400;font-size:.88rem;transition:border-color .2s,color .2s}
+.btn-g:hover{border-color:rgba(255,255,255,.3);color:var(--txt)}
+.hero-stats{display:flex;gap:2.5rem;flex-wrap:wrap;padding-top:2rem;border-top:1px solid var(--bd)}
+.stat .n{font-family:'Lora',serif;font-size:2rem;font-weight:600;color:var(--txt);display:block;line-height:1}
+.stat .l{font-size:.72rem;color:var(--muted);letter-spacing:.04em;margin-top:.3rem;text-transform:uppercase}
+
+/* Avatar card on hero */
+.hero-avatar{display:flex;flex-direction:column;align-items:center;gap:1rem;background:var(--s2);border:1px solid var(--bd);border-radius:20px;padding:2rem 1.5rem;min-width:200px}
+.avatar-img{width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid var(--acc);display:block}
+.avatar-initial{width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--purple));display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-size:2.8rem;font-weight:600;color:#09090b;border:3px solid var(--acc);flex-shrink:0}
+.avatar-name{font-family:'Lora',serif;font-size:1rem;font-weight:600;color:var(--txt);text-align:center}
+.avatar-title{font-size:.75rem;color:var(--muted);text-align:center;line-height:1.5}
+.avatar-links{display:flex;gap:.6rem;margin-top:.3rem}
+.avatar-icon{width:32px;height:32px;border-radius:7px;border:1px solid var(--bd);background:var(--s3);display:flex;align-items:center;justify-content:center;font-size:.85rem;text-decoration:none;transition:border-color .2s}
+.avatar-icon:hover{border-color:var(--bd2)}
+
+/* ─── SECTIONS ─── */
+section{padding:6rem 3rem}
+.wrap{max-width:980px;margin:0 auto}
+.sec-label{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-bottom:.5rem}
+.sec-title{font-family:'Lora',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:600;margin-bottom:.85rem;line-height:1.2}
+.sec-desc{color:var(--muted);max-width:500px;margin-bottom:3rem;font-size:.93rem;line-height:1.8}
+
+/* ─── STACK ─── */
+#stack{background:var(--s1);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.stack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:.75rem}
+.stack-card{background:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:.95rem 1.1rem;display:flex;align-items:center;gap:.7rem;transition:border-color .2s}
+.stack-card:hover{border-color:var(--bd2)}
+.s-icon{font-size:1.2rem;line-height:1;flex-shrink:0}
+.s-name{font-size:.85rem;color:var(--txt);font-weight:400}
+.s-sub{font-size:.68rem;color:var(--muted)}
+
+/* ─── PROJECTS ─── */
+#projects{background:var(--bg)}
+.proj-list{display:flex;flex-direction:column;gap:1.8rem}
+.proj-card{background:var(--s1);border:1px solid var(--bd);border-radius:18px;padding:2rem 2rem 1.8rem;display:grid;grid-template-columns:60px 1fr;gap:0 1.8rem;transition:border-color .25s,transform .25s}
+.proj-card:hover{border-color:rgba(34,211,238,.3);transform:translateY(-2px)}
+.proj-num{font-family:'Lora',serif;font-size:2.6rem;font-weight:600;color:var(--s3);line-height:1;padding-top:.1rem;user-select:none}
+.proj-content{}
+.proj-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.3rem}
+.proj-title{font-family:'Lora',serif;font-size:1.18rem;font-weight:600;color:var(--txt);line-height:1.3}
+.proj-gh{color:var(--acc);text-decoration:none;font-size:.78rem;font-weight:500;white-space:nowrap;opacity:.75;transition:opacity .2s;padding:.25rem .6rem;border:1px solid rgba(34,211,238,.2);border-radius:5px}
+.proj-gh:hover{opacity:1}
+.proj-sub{font-size:.78rem;color:var(--muted);font-style:italic;margin-bottom:.75rem}
+.proj-desc{font-size:.88rem;color:var(--sub);margin-bottom:1.1rem;line-height:1.8}
+.proj-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1rem}
+.tag{font-size:.68rem;font-weight:500;padding:3px 10px;border-radius:20px;border:1px solid;letter-spacing:.02em}
+.tc{background:rgba(34,211,238,.07);color:#67e8f9;border-color:rgba(34,211,238,.2)}
+.tg{background:rgba(52,211,153,.07);color:#6ee7b7;border-color:rgba(52,211,153,.2)}
+.tp{background:rgba(167,139,250,.07);color:#c4b5fd;border-color:rgba(167,139,250,.2)}
+.ta{background:rgba(251,191,36,.07);color:#fde68a;border-color:rgba(251,191,36,.2)}
+.tz{background:rgba(113,113,122,.1);color:#a1a1aa;border-color:rgba(113,113,122,.2)}
+.metrics{display:flex;flex-wrap:wrap;gap:.45rem}
+.metric{background:var(--s2);border:1px solid var(--bd);border-radius:7px;padding:.35rem .8rem;font-size:.75rem;color:var(--sub)}
+.metric strong{color:var(--acc);font-weight:500}
+
+/* ─── ABOUT ─── */
+#about{background:var(--s1);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.about-grid{display:grid;grid-template-columns:1fr 1.7fr;gap:4rem;align-items:start}
+.about-card{background:var(--s2);border:1px solid var(--bd);border-radius:18px;padding:2rem;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center}
+.about-photo{width:100px;height:100px;border-radius:50%;object-fit:cover;border:3px solid var(--acc)}
+.about-initial{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--purple));display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-size:2.4rem;font-weight:600;color:#09090b;border:3px solid var(--acc)}
+.about-name{font-family:'Lora',serif;font-size:1.1rem;font-weight:600;color:var(--txt)}
+.about-role{font-size:.78rem;color:var(--muted)}
+.about-divider{width:100%;height:1px;background:var(--bd)}
+.social-row{display:flex;flex-direction:column;gap:.5rem;width:100%}
+.soc-link{display:flex;align-items:center;gap:.6rem;color:var(--muted);text-decoration:none;font-size:.78rem;padding:.45rem .7rem;border-radius:7px;border:1px solid var(--bd);transition:border-color .2s,color .2s;text-align:left}
+.soc-link:hover{border-color:var(--acc);color:var(--acc)}
+.soc-link span:first-child{font-size:.9rem;flex-shrink:0}
+.about-text h3{font-family:'Lora',serif;font-size:1.4rem;font-weight:600;margin-bottom:.85rem}
+.about-text p{color:var(--sub);font-size:.89rem;margin-bottom:.85rem;line-height:1.85}
+.skills-wrap{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.1rem}
+.skill{font-size:.72rem;color:var(--sub);border:1px solid var(--bd);border-radius:20px;padding:3px 11px;transition:border-color .2s,color .2s}
+.skill:hover{border-color:var(--acc);color:var(--acc)}
+
+/* ─── CONTACT ─── */
+#contact{background:var(--bg);border-top:1px solid var(--bd)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:start}
+.contact-info h3{font-family:'Lora',serif;font-size:1.35rem;font-weight:600;margin-bottom:.75rem}
+.contact-info p{color:var(--muted);font-size:.88rem;margin-bottom:2rem;line-height:1.85}
+.c-links{display:flex;flex-direction:column;gap:.65rem}
+.c-link{display:flex;align-items:center;gap:.75rem;color:var(--muted);text-decoration:none;font-size:.86rem;transition:color .2s}
+.c-link:hover{color:var(--acc)}
+.c-icon{width:36px;height:36px;background:var(--s2);border:1px solid var(--bd);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.form{display:flex;flex-direction:column;gap:.85rem}
+.fg label{display:block;font-size:.73rem;color:var(--muted);margin-bottom:.3rem;letter-spacing:.04em;text-transform:uppercase}
+.fg input,.fg textarea{width:100%;background:var(--s1);border:1px solid var(--bd);border-radius:8px;color:var(--txt);font-family:'Inter',sans-serif;font-size:.87rem;padding:.65rem 1rem;outline:none;transition:border-color .2s;resize:none}
+.fg input:focus,.fg textarea:focus{border-color:var(--acc)}
+.fg textarea{height:115px}
+.form-btn{background:var(--acc);color:#09090b;border:none;border-radius:8px;padding:.72rem 1.7rem;font-family:'Inter',sans-serif;font-size:.87rem;font-weight:600;cursor:pointer;align-self:flex-start;transition:opacity .2s;letter-spacing:.01em}
+.form-btn:hover{opacity:.83}
+
+/* ─── FOOTER ─── */
+footer{text-align:center;padding:2rem 3rem;border-top:1px solid var(--bd);font-size:.76rem;color:var(--muted)}
+footer a{color:var(--acc);text-decoration:none}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:820px){
+  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
+  .hero-avatar{flex-direction:row;min-width:unset;width:100%;justify-content:flex-start;padding:1.2rem 1.5rem}
+  .avatar-initial,.avatar-img{width:64px;height:64px;font-size:1.6rem}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  nav{padding:0 1.2rem}
+  .nav-links{gap:1rem}
+  .hero,section{padding-left:1.2rem;padding-right:1.2rem}
+  .proj-card{grid-template-columns:1fr}
+  .proj-num{font-size:1.8rem}
+  .hero-stats{gap:1.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Sam<span>Analytics</span></a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#stack">Skills</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="glow-a"></div>
+  <div class="glow-b"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="badge">Available for opportunities</div>
+      <h1>Raw data.<br><em>Clear answers.</em><br>Real impact.</h1>
+      <p class="hero-desc">I'm Sam — a self-taught data analyst building end-to-end analytics projects. From cleaning messy data to delivering dashboards stakeholders can actually use. Every project here starts with a business problem and ends with a recommendation you can act on.</p>
+      <div class="btns">
+        <a href="#projects" class="btn-p">View My Work</a>
+        <a href="https://github.com/Techy-Sam1" target="_blank" class="btn-g">GitHub ↗</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="n">5+</span><span class="l">Projects completed</span></div>
+        <div class="stat"><span class="n">4</span><span class="l">Tools per pipeline</span></div>
+        <div class="stat"><span class="n">7K+</span><span class="l">Records analysed</span></div>
+        <div class="stat"><span class="n">$750K+</span><span class="l">Value identified</span></div>
+      </div>
+    </div>
+
+    <!-- AVATAR CARD — top right of hero -->
+    <div class="hero-avatar">
+      <!--
+        TO ADD YOUR PHOTO:
+        1. Save your headshot as "headshot.jpg" in the same folder as this index.html
+        2. Delete the <div class="avatar-initial">S</div> line below
+        3. Uncomment the <img> line below
+      -->
+      <!-- <img src="headshot.jpg" alt="Sam" class="avatar-img"/> -->
+      <div class="avatar-initial">S</div>
+      <div class="avatar-name">SamAnalytics</div>
+      <div class="avatar-title">Data Analyst<br>Self-Taught · UK</div>
+      <div class="avatar-links">
+        <a href="https://github.com/Techy-Sam1" target="_blank" class="avatar-icon" title="GitHub">🐙</a>
+        <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" class="avatar-icon" title="LinkedIn">💼</a>
+        <a href="mailto:your@email.com" class="avatar-icon" title="Email">✉️</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack">
+  <div class="wrap">
+    <p class="sec-label">Skills &amp; Tools</p>
+    <h2 class="sec-title">My analytics pipeline</h2>
+    <p class="sec-desc">Every project follows the same rigorous end-to-end workflow — raw data in, business insight out.</p>
+    <div class="stack-grid">
+      <div class="stack-card"><span class="s-icon">📊</span><div><div class="s-name">Excel</div><div class="s-sub">Clean &amp; explore</div></div></div>
+      <div class="stack-card"><span class="s-icon">🗄️</span><div><div class="s-name">MySQL / SQLite</div><div class="s-sub">Query &amp; analyse</div></div></div>
+      <div class="stack-card"><span class="s-icon">🐍</span><div><div class="s-name">Python</div><div class="s-sub">Pandas, Seaborn, NumPy</div></div></div>
+      <div class="stack-card"><span class="s-icon">📈</span><div><div class="s-name">Power BI</div><div class="s-sub">Dashboard &amp; present</div></div></div>
+      <div class="stack-card"><span class="s-icon">📐</span><div><div class="s-name">DAX</div><div class="s-sub">Measures &amp; KPIs</div></div></div>
+      <div class="stack-card"><span class="s-icon">🔀</span><div><div class="s-name">Power Query</div><div class="s-sub">Transform &amp; merge</div></div></div>
+      <div class="stack-card"><span class="s-icon">🧹</span><div><div class="s-name">Data Cleaning</div><div class="s-sub">End-to-end prep</div></div></div>
+      <div class="stack-card"><span class="s-icon">📖</span><div><div class="s-name">Storytelling</div><div class="s-sub">Insight → action</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <p class="sec-label">Work</p>
+    <h2 class="sec-title">Portfolio projects</h2>
+    <p class="sec-desc">Five projects from oldest to latest — each one building on skills from the last.</p>
+    <div class="proj-list">
+
+      <!-- 01 MY FIRST POWER BI DASHBOARD -->
+      <div class="proj-card">
+        <div class="proj-num">01</div>
+        <div class="proj-content">
+          <div class="proj-header">
+            <div class="proj-title">My First Power BI Dashboard</div>
+            <a class="proj-gh" href="https://github.com/Techy-Sam1/MY-FIRST-POWER-BI-DASHBOARD" target="_blank">View on GitHub ↗</a>
+          </div>
+          <div class="proj-sub">Foundation project · Power BI · Where it all started</div>
+          <p class="proj-desc">The starting point of my analytics journey. Built my very first interactive Power BI dashboard from scratch — learning DAX measures, data modelling, visual design, and how to present data in a way that is immediately readable. This project established the foundation for the structured four-tool pipeline I apply to every project since.</p>
+          <div class="proj-tags">
+            <span class="tag tp">Power BI</span>
+            <span class="tag ta">DAX</span>
+            <span class="tag tz">Data Visualisation</span>
+            <span class="tag tz">Data Modelling</span>
+          </div>
+          <div class="metrics">
+            <div class="metric">First dashboard ever built</div>
+            <div class="metric">Foundation of my pipeline</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 CUSTOMER CHURN -->
+      <div class="proj-card">
+        <div class="proj-num">02</div>
+        <div class="proj-content">
+          <div class="proj-header">
+            <div class="proj-title">Telco Customer Churn Analysis</div>
+            <a class="proj-gh" href="https://github.com/Techy-Sam1/CUSTOMER-CHURN-PROJECT" target="_blank">View on GitHub ↗</a>
+          </div>
+          <div class="proj-sub">End-to-end · Excel → MySQL → Python → Power BI</div>
+          <p class="proj-desc">Analysed 7,032 customer records to find out why a telecom company was losing 26.6% of customers annually — above the 18–25% industry average. Built a complete four-tool pipeline: cleaned in Excel, queried business questions in MySQL, engineered a custom risk scoring model in Python that flagged 31 high-risk customers, and delivered an interactive Power BI dashboard with strategies projected to recover over $450K in recurring revenue.</p>
+          <div class="proj-tags">
+            <span class="tag tc">Excel</span>
+            <span class="tag tc">MySQL</span>
+            <span class="tag tg">Python</span>
+            <span class="tag tp">Power BI</span>
+            <span class="tag ta">DAX</span>
+            <span class="tag tz">Risk Scoring</span>
+          </div>
+          <div class="metrics">
+            <div class="metric"><strong>7,032</strong> customers analysed</div>
+            <div class="metric"><strong>26.6%</strong> churn rate uncovered</div>
+            <div class="metric"><strong>$2.86M</strong> revenue lost to churn</div>
+            <div class="metric"><strong>$139K/mo</strong> revenue at risk</div>
+            <div class="metric"><strong>$450K+</strong> recoverable revenue</div>
+            <div class="metric"><strong>31</strong> high-risk customers flagged</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 LOAN PREDICTION -->
+      <div class="proj-card">
+        <div class="proj-num">03</div>
+        <div class="proj-content">
+          <div class="proj-header">
+            <div class="proj-title">Loan Default Prediction</div>
+            <a class="proj-gh" href="https://github.com/Techy-Sam1/LOAN-PREDICTION-PROJECT" target="_blank">View on GitHub ↗</a>
+          </div>
+          <div class="proj-sub">End-to-end · Excel → MySQL → Python → Power BI</div>
+          <p class="proj-desc">Analysed a bank's lending data to help loan officers make decisions based on evidence rather than gut instinct. Built a full analytics pipeline across four tools, developed a recommendation model identifying which applicants represented the highest default risk, and delivered a dark-themed interactive risk dashboard in Power BI. The model identified strategies projected to save the company over $750K annually by reducing loan defaults.</p>
+          <div class="proj-tags">
+            <span class="tag tc">Excel</span>
+            <span class="tag tc">MySQL</span>
+            <span class="tag tg">Python</span>
+            <span class="tag tp">Power BI</span>
+            <span class="tag ta">Power Query</span>
+            <span class="tag ta">DAX</span>
+            <span class="tag tz">Risk Analysis</span>
+          </div>
+          <div class="metrics">
+            <div class="metric"><strong>614</strong> loan applications</div>
+            <div class="metric"><strong>$750K+</strong> savings identified annually</div>
+            <div class="metric">Dark-themed risk dashboard</div>
+            <div class="metric">Power Query data merging</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 CAPSTONE / SALES -->
+      <div class="proj-card">
+        <div class="proj-num">04</div>
+        <div class="proj-content">
+          <div class="proj-header">
+            <div class="proj-title">Sales Capstone &amp; Data Storytelling</div>
+            <a class="proj-gh" href="https://github.com/Techy-Sam1/FIRST-CAPSTONE-PROJECT-AND-STRORY-TELLING" target="_blank">View on GitHub ↗</a>
+          </div>
+          <div class="proj-sub">Capstone · Python · SQL · Excel · Power BI · Data Storytelling</div>
+          <p class="proj-desc">Cleaned, analysed, and transformed raw sales data into clear, reliable insights, then presented them through an executive-ready Power BI dashboard. Discovered that Classic Cars drove the most revenue, medium deal sizes accounted for 50% of total revenue, and the USA was the dominant market. Recommended targeted marketing to recover from a 2005 sales dip. This project was about more than analysis — it was about translating data into a story that leadership could act on.</p>
+          <div class="proj-tags">
+            <span class="tag tc">Excel</span>
+            <span class="tag tc">SQLite</span>
+            <span class="tag tg">Python</span>
+            <span class="tag tp">Power BI</span>
+            <span class="tag tz">Storytelling</span>
+            <span class="tag tz">Sales Analysis</span>
+          </div>
+          <div class="metrics">
+            <div class="metric">50% revenue from medium deals</div>
+            <div class="metric">USA #1 market identified</div>
+            <div class="metric">Classic Cars top product line</div>
+            <div class="metric">Executive-ready dashboard</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 MARKETING -->
+      <div class="proj-card">
+        <div class="proj-num">05</div>
+        <div class="proj-content">
+          <div class="proj-header">
+            <div class="proj-title">Marketing Campaign Analysis</div>
+            <a class="proj-gh" href="https://github.com/Techy-Sam1/MARKETING-ANALYSIS-PROJECT-SQL-PYTHON-" target="_blank">View on GitHub ↗</a>
+          </div>
+          <div class="proj-sub">Latest project · SQL + Python · Campaign performance &amp; customer segmentation</div>
+          <p class="proj-desc">Analysed marketing campaign performance using SQL and Python to identify which campaigns drove the most acceptance, which customer segments responded best, and how income and spending behaviour influenced campaign engagement. Created a TotalSpend feature and a Responsive flag to segment customers, then compared average spend and income between responsive and non-responsive groups. Delivered clear recommendations on where to reallocate marketing budget for maximum ROI.</p>
+          <div class="proj-tags">
+            <span class="tag tc">MySQL</span>
+            <span class="tag tg">Python</span>
+            <span class="tag tg">Pandas</span>
+            <span class="tag tg">Seaborn</span>
+            <span class="tag tz">Marketing Analytics</span>
+            <span class="tag tz">Customer Segmentation</span>
+            <span class="tag tz">EDA</span>
+          </div>
+          <div class="metrics">
+            <div class="metric">5 campaigns evaluated</div>
+            <div class="metric">High-spend customers identified as most responsive</div>
+            <div class="metric">Budget reallocation recommended</div>
+            <div class="metric">Most advanced project to date</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-card">
+        <!--
+          TO ADD YOUR PHOTO here too:
+          Replace <div class="about-initial">S</div>
+          with: <img src="headshot.jpg" alt="Sam" class="about-photo"/>
+        -->
+        <div class="about-initial">S</div>
+        <div class="about-name">SamAnalytics</div>
+        <div class="about-role">Data Analyst · Self-Taught · UK</div>
+        <div class="about-divider"></div>
+        <div class="social-row">
+          <a href="https://github.com/Techy-Sam1" class="soc-link" target="_blank"><span>🐙</span><span>github.com/Techy-Sam1</span></a>
+          <a href="https://linkedin.com/in/YOUR_LINKEDIN" class="soc-link" target="_blank"><span>💼</span><span>LinkedIn — add your URL</span></a>
+          <a href="mailto:your@email.com" class="soc-link"><span>✉️</span><span>your@email.com</span></a>
+          <a href="YOUR_CV_LINK" class="soc-link" target="_blank"><span>📄</span><span>Download CV / Resume</span></a>
+        </div>
+      </div>
+      <div class="about-text">
+        <p class="sec-label">About me</p>
+        <h3>Self-taught. End-to-end. Curious.</h3>
+        <p>Hi, I'm Sam — a self-taught data professional based in the UK. I've been building real-world analytics projects across SQL, Excel, Power BI, and Python, each one designed to solve an actual business problem from scratch rather than just practise on toy datasets.</p>
+        <p>Every project in this portfolio follows a rigorous four-tool pipeline: raw data gets cleaned in Excel, queried deeply in MySQL or SQLite, engineered and visualised in Python, and then delivered in a Power BI dashboard that a non-technical stakeholder could pick up and use immediately.</p>
+        <p>I don't just collect tools — I build for impact. From flagging 31 high-risk customers to recommending $750K+ in annual savings for a bank, the goal is always the same: turn messy data into something a business can act on tomorrow morning.</p>
+        <div class="skills-wrap">
+          <span class="skill">Excel</span>
+          <span class="skill">MySQL</span>
+          <span class="skill">SQLite</span>
+          <span class="skill">Python</span>
+          <span class="skill">Pandas</span>
+          <span class="skill">NumPy</span>
+          <span class="skill">Matplotlib</span>
+          <span class="skill">Seaborn</span>
+          <span class="skill">Power BI</span>
+          <span class="skill">DAX</span>
+          <span class="skill">Power Query</span>
+          <span class="skill">Data Cleaning</span>
+          <span class="skill">Feature Engineering</span>
+          <span class="skill">EDA</span>
+          <span class="skill">Data Storytelling</span>
+          <span class="skill">Customer Segmentation</span>
+          <span class="skill">Risk Analysis</span>
+          <span class="skill">Dashboard Design</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <p class="sec-label">Get in touch</p>
+    <h2 class="sec-title">Let's talk data</h2>
+    <p class="sec-desc">Open to data analyst roles, freelance projects, and collaborations. I'd love to hear from you.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Reach out directly</h3>
+        <p>Whether you're hiring, want to collaborate on a project, or just want to connect with a fellow data enthusiast — drop me a message.</p>
+        <div class="c-links">
+          <a href="mailto:your@email.com" class="c-link"><div class="c-icon">✉️</div> your@email.com</a>
+          <a href="https://github.com/Techy-Sam1" class="c-link" target="_blank"><div class="c-icon">🐙</div> github.com/Techy-Sam1</a>
+          <a href="https://linkedin.com/in/YOUR_LINKEDIN" class="c-link" target="_blank"><div class="c-icon">💼</div> LinkedIn</a>
+        </div>
+      </div>
+      <form class="form" onsubmit="handleForm(event)">
+        <div class="fg"><label>Name</label><input type="text" placeholder="Your name" required/></div>
+        <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com" required/></div>
+        <div class="fg"><label>Message</label><textarea placeholder="What would you like to discuss?" required></textarea></div>
+        <button type="submit" class="form-btn">Send Message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 SamAnalytics &nbsp;·&nbsp; Built with HTML &amp; hosted on GitHub Pages &nbsp;·&nbsp; <a href="https://github.com/Techy-Sam1" target="_blank">github.com/Techy-Sam1</a></p>
+</footer>
+
+<script>
+function handleForm(e){
+  e.preventDefault();
+  alert('To make this form send real emails, sign up free at formspree.io — it takes about 5 minutes and just needs one line changed in the HTML.');
+}
+</script>
+</body>
+</html>
